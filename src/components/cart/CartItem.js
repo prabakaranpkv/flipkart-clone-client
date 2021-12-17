@@ -1,5 +1,6 @@
 import { Box, Button, Card, makeStyles, Typography } from "@material-ui/core";
 import clsx from "clsx";
+import { useState } from "react";
 
 //components
 import GroupButton from "./GroupButton";
@@ -42,12 +43,17 @@ export default function CartItem({ item, removeItemFromCart }) {
   const classes = useStyle();
   const assured =
     "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png";
+  const [prodCount, setProdCount] = useState(1);
+
+  const counter = (params) => {
+    setProdCount(+Object.values(params).toString());
+  };
 
   return (
     <Card className={classes.component}>
       <Box className={classes.leftCompoent}>
         <img src={item.url} className={classes.image} alt="productimg" />
-        <GroupButton />
+        <GroupButton sendData={counter} />
       </Box>
       <Box className={classes.rightComponent}>
         <Typography>{item.title.longTitle}</Typography>
@@ -65,7 +71,7 @@ export default function CartItem({ item, removeItemFromCart }) {
           </span>
         </Typography>
         <Typography style={{ margin: "20px 0" }}>
-          <span className={classes.price}>₹{item.price.cost}</span>{" "}
+          <span className={classes.price}>₹{item.price.cost * prodCount}</span>{" "}
           &nbsp;&nbsp;&nbsp;
           <span className={classes.greyColorText}>
             <strike>₹{item.price.mrp}</strike>

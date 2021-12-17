@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 
 const useStyle = makeStyles({
   component: {
-    // width: "30%",
+    width: "30%",
   },
   header: {
-    padding: "16px 24px",
+    textAlign: "center",
     background: "#fff",
   },
   container: {
@@ -30,26 +30,8 @@ const useStyle = makeStyles({
   },
 });
 
-export default function TotalView({ cartItems }) {
+export default function TotalView() {
   const classes = useStyle();
-
-  const [price, setPrice] = useState(0);
-  const [discount, setDiscount] = useState(0);
-
-  useEffect(() => {
-    totalAmount();
-  }, [cartItems]);
-
-  const totalAmount = () => {
-    let price = 0,
-      discount = 0;
-    cartItems.map((item) => {
-      price += item.price.mrp;
-      discount += item.price.mrp - item.price.cost;
-    });
-    setPrice(price);
-    setDiscount(discount);
-  };
 
   return (
     <Box className={classes.component}>
@@ -58,21 +40,20 @@ export default function TotalView({ cartItems }) {
       </Box>
       <Box className={classes.container}>
         <Typography>
-          Price ({cartItems.length} item){" "}
-          <span className={classes.price}>₹{price}</span>
+          Price ( item) <span className={classes.price}>₹</span>
         </Typography>
         <Typography>
-          Discount <span className={classes.price}>-₹{discount}</span>
+          Discount <span className={classes.price}>-₹</span>
         </Typography>
         <Typography>
           Delivery Charge<span className={classes.price}>₹40</span>
         </Typography>
         <Typography className={classes.totalAmount}>
           Total Amount
-          <span className={classes.price}>₹{price - discount + 40}</span>
+          <span className={classes.price}>₹</span>
         </Typography>
         <Typography style={{ color: "green" }}>
-          You will save ₹{discount - 40} on this Order{" "}
+          You will save ₹ on this Order{" "}
         </Typography>
       </Box>
     </Box>

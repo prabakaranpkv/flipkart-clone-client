@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import CartItem from "./CartItem";
 import { removeFromCart } from "../../redux/actions/CartActions";
 import EmptyCart from "./EmptyCart";
-import TotalView from "./TotalView";
 import { payUsingPaytm } from "../../service/Api";
 import { post } from "../../utils/Paytm";
 
@@ -104,9 +103,6 @@ export default function Cart() {
                 Place Order
               </Button>
             </Box>
-          </Grid>
-          <Grid item lg={3} md={3} sm={12} xs={12}>
-            <TotalView cartItems={cartItems} />
           </Grid>
         </Grid>
       ) : (

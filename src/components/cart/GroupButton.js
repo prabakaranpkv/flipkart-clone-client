@@ -10,16 +10,16 @@ const useStyle = makeStyles({
   },
 });
 
-export default function GroupButton() {
+export default function GroupButton(props) {
   const classes = useStyle();
   const [counter, setCounter] = useState(1);
-
+  props.sendData({ counter });
   const handleIncrement = () => {
-    setCounter((counter) => counter + 1);
+    setCounter((counte) => counte + 1);
   };
 
   const handleDecrement = () => {
-    setCounter((counter) => counter - 1);
+    setCounter((counte) => counte - 1);
   };
 
   return (

@@ -47,7 +47,6 @@ const useStyle = makeStyles((theme) => ({
     display: "flex",
     [theme.breakpoints.down("sm")]: {
       display: "block",
-      display: "flex",
     },
   },
 }));
