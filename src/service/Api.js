@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const url = "https://flipkartclone-server.herokuapp.com";
+const url = "https://flipkartclone-server.onrender.com";
+//const url = "https://flipkartclone-server.herokuapp.com";
 
 export const authenticateSignup = async (user) => {
   try {
