@@ -1,7 +1,8 @@
 import axios from "axios";
 import * as action from "../constants/ProductConstant";
 
-const url = "https://flipkartclone-server.herokuapp.com";
+const url = "https://flipkartclone-server.onrender.com";
+//const url = "https://flipkartclone-server.herokuapp.com";
 
 export const getProducts = () => async (dispatch) => {
   try {
